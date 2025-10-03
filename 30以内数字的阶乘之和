@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main()
+{
+	unsigned int m, n;
+	for (m = 1; m <= 30; m++)
+	{
+		double result = 1;
+		for (n = 2; n <= m; n++)
+		{
+			result = result * n;
+		}
+		printf("%d! = %.0f\n",m,result);
+	}
+	return 0;
+}
