@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	float a, b, c;
+	double x,x1, x2;
+	printf("请输入方程ax*x + bx +c =0中a,b,c的值：");
+	scanf("%f %f %f",&a,&b,&c);
+
+	if (a == 0 && b == 0) {
+		printf("错误！该方程不存在！");
+		return 1;
+	}
+
+	if (a == 0 && b != 0) {
+		x = -c / b;
+		printf("该方程的解为：x = %g",x);
+	}
+
+	else {
+		double m = 0;
+		m = pow(b, 2) - 4 * a * c;
+		if (m < 0) {
+			printf("该方程无实数解");
+		}
+
+		if (m == 0) {
+			x = (-b + sqrt(m)) / (2 * a);
+			printf("该方程有两个相等的实数解：x1 = x2 = %g", x);
+		}
+
+		if (m > 0) {
+			x1 = (-b + sqrt(m)) / (2 * a);
+			x2 = (-b - sqrt(m)) / (2 * a);
+			printf("该方程的两个实数解分别为：x1 = %g, x2 = %g", x1, x2);
+		}
+	}
+
+	return 0;
+}
