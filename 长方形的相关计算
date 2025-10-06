@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int main()
+{
+	float a, b;
+
+	printf("请输入长方形的长：");
+	scanf("%f",&a);
+
+	printf("请输入长方形的宽：");
+	scanf("%f",&b); 
+
+	if (a <= 0 || b <= 0) {
+		printf("请重新输入长方形的参数！");
+		return 1;
+	}
+
+	float c = 2 * (a + b),
+		area = a * b;
+
+	printf("长方形的周长是：c = %g",c);
+	printf("长方形的面积是：area = %g",area);
+
+	return 0;
+}
