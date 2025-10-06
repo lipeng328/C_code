@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+#define PI 3.1415
+
+int main()
+{
+	double r;
+	printf("请输入球体的半径：");
+	scanf("%lf", &r);
+
+	if (r <= 0) {
+		printf("错误！请重新输入圆的半径！");
+		return 1;
+	}
+
+	double area = 4 * PI * pow(r, 2),
+		v =4 / 3 * PI * pow(r, 3);
+
+	printf("该球体的表面积为：area = %g",area);
+	printf("该球体的体积为：v = %g",v);
+
+	return 0;
+}
