@@ -1,0 +1,38 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	float a, b, c;
+	printf("请输入方程a * x ^ 2 + b * x + c = 0中参数a, b, c的值：");
+	scanf("%f %f %f", &a, &b, &c);
+
+	if (a == 0) {
+		if (b == 0) {
+			if (c == 0) {
+				printf("方程有无穷解");
+			}
+			else {
+				printf("该方程无解");
+			}
+		}
+		else {
+			printf("该方程的解为：%f", -c / b);
+		}
+	}
+	else {
+		double delta;
+		delta = pow(b, 2) - 4 * a * c;
+		if (delta < 0) {
+			printf("该方程的解为：x1 = %.2f + %.2fi", (-b) / 2 * a, sqrt(-delta) / 2 * a);
+			printf("该方程的解为：x2 = %.2f - %.2fi", (-b) / 2 * a, sqrt(-delta) / 2 * a);
+		}
+		else {
+			printf("该方程的解为：x1 = %.2f", (-b + sqrt(delta)) / (2 * a));
+			printf("该方程的解为：x2 = %.2f", (-b - sqrt(delta)) / (2 * a));
+		}
+
+	}
+	return 0;
+}
