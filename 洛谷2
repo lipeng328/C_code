@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<math.h>
+
+int func(int, int, int);
+
+int main()
+{
+    int a, b, c, m, n;
+    scanf("%d %d %d", &a, &b, &c);
+
+    m = 0;    n = 0;
+    if(a == b || a == c || b == c){
+        m = 2;
+        if(a == b && b == c){
+            m = 1;
+        }
+    }
+    int i = fmax(fmax(a,b),c);
+    if((i == a && a < b + c) || (i == b && b < a + c) || (i == c && c < a + b)){
+        if(i == a){
+            n = func(a, b, c);
+        }
+        else if(i == b){
+            n = func(b, a, c);
+        }
+        else{
+            n = func(c, a, b);
+        }
+    }
+    else{
+        m = 3;
+    }
+
+    switch(n){
+        case 1:
+            printf("Right triangle\n");
+            break;
+        case 2:
+            printf("Obtuse triangle\n");
+            break;
+        case 3:
+            printf("Acute triangle\n");
+            break;
+    }
+    switch(m){
+        case 1:
+            printf("Isosceles triangle\n");
+            printf("Equilateral triangle\n");
+            break;
+        case 2:
+            printf("Isosceles triangle\n");
+            break;
+        case 3:
+            printf("Not triangle\n");
+    }
+
+    return 0;
+}
+
+int func(int x, int y, int z){
+    int j = 0;
+    
+    if(pow(x,2) == pow(y,2) + pow(z,2)){
+        j = 1;  
+    }
+    else if(pow(x,2) > pow(y,2) + pow(z,2)){
+        j = 2;
+    }
+    else{
+        j = 3;
+    }
+
+    return j;
+}
