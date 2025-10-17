@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main() {
+    int s, v;
+    scanf("%d %d", &s, &v);
+    
+    int time_road = s / v;
+    if (s % v != 0) {
+        time_road++;
+    }
+    int total_time = time_road + 10;
+    
+    int target = 8 * 60;
+    int start_min = target - total_time;
+    if (start_min < 0) {
+        start_min += 24 * 60; 
+    }
+
+    int hour = start_min / 60;
+    int minute = start_min % 60;
+    
+    printf("%02d:%02d\n", hour, minute);
+    
+    return 0;
+}
