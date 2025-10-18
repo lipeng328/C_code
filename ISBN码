@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+    int arr[4] = { 0 };
+    for (int i = 0; i < 4; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int arr1[3] = { 0 };
+    arr1[0] = arr[1] / pow(10, 3);
+    for (int j = 1; j < 3; j++) {
+        arr1[j] = (arr[1] / pow(10, 3 - j)) - (arr[j - 1] * pow(10, j));
+    }
+    int arr2[5] = { 0 };
+    arr2[0] = arr[2] / pow(10, 5);
+    for (int m = 1; m < 5; m++) {
+        arr2[m] = (arr[2] / pow(10, 5 - m)) - (arr[m - 1] * pow(10, m));
+    }
+    int sum1 = 0, sum2 = 0;
+    for (int n = 2; n < 5; n++) {
+        sum1 = arr1[n - 2] * (n - 1) + sum1;
+    }
+    for (int k = 5; k < 10; k++) {
+        sum2 = arr1[k - 5] * k + sum2;
+    }
+    int sum = arr[0] * 1 + sum1 + sum2;
+    int result = sum % 11;
+
+    if (result == arr[3]) {
+        printf("Right\n");
+    }
+    else {
+        printf("%d%d%d%d\n", arr[0], arr[1], arr[2], result);
+    }
+
+    return 0;
+}
