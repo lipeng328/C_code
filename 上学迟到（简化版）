@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int main()
+{
+    int s, v;
+    scanf("%d %d", &s, &v);
+
+    int time1 = s / v, time2 = 0;
+    if(s % v == 0){
+        time2 = 0;
+    }
+    else{
+        time2 = 1;
+    }
+    int time3 = 0;
+    int time = (time3 = time1 + time2 + 10, 720 - time3);
+    
+    int timeh = 0, timem = 0;
+    if(time < 240){
+        timeh = time / 60 + 20;
+        timem = time % 60;
+    }
+    else{
+        timeh = time / 60 - 4;
+        timem = time % 60;
+    }
+
+    printf("%02d:%02d", timeh, timem);
+
+    return 0;
+}
