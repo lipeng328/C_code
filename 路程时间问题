@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int main()
+{
+    int s, v;
+    scanf("%d %d", &s, &v);
+
+    if (s < 1 || v > 10000) {
+        return 1;
+    }
+    else {
+        int time = s / v;
+        int a = s % v;
+        int timeh1 = (time / 60);
+        int timem1 = (time % 60);
+        int timeh = 8 - timeh1;
+        int timem = 60 - timem1 - 10;
+        if (a == 0) {
+            printf("0%d:50", timeh - 1);
+        }
+        else {
+            printf("0%d:%d", timeh - 1, timem - 1);
+        }
+    }
+    return 0;
+}
