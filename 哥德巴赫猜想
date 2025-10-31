@@ -1,0 +1,60 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int func(int j);
+
+int main()
+{
+	int i, m = 1, n, b;
+	int arr[8] = {0};
+
+	arr[0] = 2;
+
+	for (i = 3; i < 20; i += 2) {
+		if (func(i) == 0) {
+			arr[m] = i;
+			m++;
+		}
+	}
+
+	for (i = 2; i < 10001; i += 2) {
+		for (n = 0; n <= (m / 2); n++ ) {
+			if (arr[n] > i) {
+				break;
+			}
+			else {
+				b = i - arr[n];
+				if (func(b) == 0) {
+					printf("%d = %d + %d\n", i, arr[n], b);
+					break;
+				}
+			}
+		}
+	}
+	return 0;
+}
+
+int func(int j) {
+	int count = 0;
+	if (j == 2) {
+		return 0;
+	}
+	else if (j % 2 == 0 || j < 2) {
+		return 1;
+	}
+	else {
+		for (int k = 3; k * k <= j; k += 2) {
+			if(j % k == 0) {
+				count++;
+			}
+		}
+
+		if (count == 0) {
+			return 0;
+		}
+		else {
+			return 1;
+		}
+
+	}
+}
