@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int IsAddition(int x, int y) {
+	return (x + y);
+}
+
+int IsSubtration(int x, int y) {
+	return (x - y);
+}
+
+int IsMultiplication(int x, int y) {
+	return (x * y);
+}
+
+int IsDivision(int x, int y) {
+	return (x / y);
+}
+
+int IsModulo(int x, int y) {
+	return (x % y);
+}
+
+int main()
+{
+	char c;		int a, b, result, remainder;
+	scanf("%d%c%d", &a, &c, &b);
+
+	switch (c) {
+		case '+':
+			result = IsAddition(a, b);	        	  break;
+		case '-': 
+			result = IsSubtration(a, b);		      break;
+		case '*': 
+			result = IsMultiplication(a, b);		  break;
+		case '/':
+			if (b != 0) {
+				result = IsDivision(a, b);
+				remainder = IsModulo(a, b);
+			}										  break;
+		default:
+			printf("错误");
+	}
+
+	if (c == '/') {
+		printf("%d %c %d = %d --- %d", a, c, b, result, remainder);
+	}
+	else {
+		printf("%d %c %d = %d", a, c, b, result);
+	}
+
+	return 0;
+}
