@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WAENINGS
+#include<stdio.h>
+
+int func(int n, int x, int y) {
+	if (n == 1) {
+		return x;
+	}
+	if (n == 2) {
+		return y;
+	}
+	else {
+		return func(n - 1, y, x + y);
+	}
+}
+
+int main()
+{
+	int arr[10] = {0};
+	arr[0] = 1;		arr[1] = 1;
+
+	for (int i = 2; i < 10; i++) {
+		arr[i] = arr[i - 1] + arr[i - 2];
+	}
+
+	int m = func(10, 1, 1);
+
+	printf("%d\n", m);
+
+	for (int j = 0; j < 10; j++) {
+		printf("%d\t", arr[j]);
+	}
+}
